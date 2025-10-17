@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Tecnológica de La Costa Grande De Guerrero </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #07e633, #3fee05, #45de08);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .university-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .university-logo {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .university-logo img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        
+        .university-text {
+            max-width: 600px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .folder-card {
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .folder-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+        }
+        
+        h2 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .student-info {
+            grid-column: 1 / -1;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .info-item {
+            margin-bottom: 10px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #1a2a6c;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #07b60a);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #3bec0a, #1a2a6c);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="university-info">
+                <div class="university-logo">
+                    <!-- Imagen de la universidad - reemplazar con la imagen real -->
+                    <img src="" alt="Logo Universidad">
+                </div>
+                <div class="university-text">
+                    <h1>Universidad Tecnológica De La Costa Grande De Guerrero</h1>
+                   
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <div class="card folder-card" onclick="navigateTo('sw')">
+                <div class="folder-icon">📁</div>
+                <h2>Carpeta SW</h2>
+                <p>Contiene materiales y proyectos relacionados con el curso de Software.</p>
+                <button class="btn">Abrir Carpeta</button>
+            </div>
+            
+            <div class="card folder-card" onclick="navigateTo('sw2')">
+                <div class="folder-icon">📁</div>
+                <h2>Carpeta SW2</h2>
+                <p>Contiene materiales y proyectos relacionados con el curso de Software II.</p>
+                <button class="btn">Abrir Carpeta</button>
+            </div>
+            
+            <div class="card student-info">
+                <h2>Información del Estudiante</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Nombre:</span>
+                        <span id="student-name">Alejandro Infante Pino</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Matrícula:</span>
+                        <span id="student-id">22307059</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Carrera:</span>
+                        <span id="student-major">IDGS</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Cuatrimestre Y Grpo:</span>
+                        <span id="student-semester">10-1</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <script>
+        function navigateTo(folder) {
+            // Aquí puedes cambiar las rutas según sea necesario
+            if (folder === 'sw') {
+                window.location.href = './sw/';
+            } else if (folder === 'sw2') {
+                window.location.href = './sw2/';
+            }
+        }
+        
+        // Datos del estudiante - puedes personalizar estos valores
+        const studentData = {
+            name: "Alejandro Infante Pino",
+            id: "22307059",
+            major: "IDGS",
+            semester: "10-1",
+            
+        };
+        
+        // Actualizar la información del estudiante en la página
+        document.getElementById('student-name').textContent = studentData.name;
+        document.getElementById('student-id').textContent = studentData.id;
+        document.getElementById('student-major').textContent = studentData.major;
+        document.getElementById('student-semester').textContent = studentData.semester;
+        document.getElementById('student-email').textContent = studentData.email;
+        document.getElementById('student-phone').textContent = studentData.phone;
+    </script>
+</body>
+</html>
